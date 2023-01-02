@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
-  root 'correncies#index'
+  get  'currencies/convert'
+  root 'currencies#index'
+  
+  post 'convert' =>'currencies#convert'
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")

@@ -1,8 +1,8 @@
 require "test_helper"
 
-class CorrenciesControllerTest < ActionDispatch::IntegrationTest
+class CurrenciesControllerTest < ActionDispatch::IntegrationTest
   test "should get index" do
-    get correncies_index_url
+    get currencies_index_url
     assert_response :success
   end
 end
