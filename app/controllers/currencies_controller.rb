@@ -16,16 +16,19 @@ class CurrenciesController < ApplicationController
     #   )
     #   end
     # end
+
   end
 
 
   def convert
-    value = params[:value]
-    from = params[:from_currency]
-    to = params[:to_currency]
+    @currencies = Currency.all.pluck(:symbol, :id)
 
-
-    puts @value , @from , @to
+    @value = params[:value]
+    @from_currency = Currency.find(params[:from_currency])
+    @to_currency = Currency.find(params[:to_currency])
+    # @result = value * from_currency.value / to_currency.value
+    
+    # @result = result
 
   end
 

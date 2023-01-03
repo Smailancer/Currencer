@@ -1,24 +1,42 @@
-# README
+# Currency Converter
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Currency Converter is a web application that allows you to convert between different currencies.
 
-Things you may want to cover:
+## Features
 
-* Ruby version
+* Convert between more than 49 currencies
+* Get hourly exchange rates from a reliable source
+* Choose from multiple conversion methods
+* Save and view your conversion history
 
-* System dependencies
+## Installation
 
-* Configuration
+To install Currency Converter, follow these steps:
 
-* Database creation
+1. Clone the repository:
 
-* Database initialization
+```
+git clone https://github.com/Smailancer/currencer.git
+```
 
-* How to run the test suite
+2. Install the dependencies:
+```
+bundle install
+```
+3. Set up the database:
+```
+rails db:create
+rails db:migrate
+```
+## Configuration
 
-* Services (job queues, cache servers, search engines, etc.)
+Currency Converter can be configured using the following environment variables:
 
-* Deployment instructions
+* `CURRENCY_CONVERTER_API_KEY`: The API key to use when making API requests to the currency exchange rate provider.
 
-* ...
+## Usage
+
+To use Currency Converter, visit the homepage at 
+```
+http://localhost:3000.
+```

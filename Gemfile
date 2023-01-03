@@ -48,7 +48,7 @@ gem "bootstrap"
 gem "jquery-rails"
 gem "simple_form"
 gem "sidekiq-cron", "~> 1.9", ">= 1.9.1"
-gem 'hiredis', '~> 0.6.3'
+
 # Use Sass to process CSS
 # gem "sassc-rails"
 

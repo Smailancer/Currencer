@@ -1,2 +1,25 @@
-<h1>This is a result</h1>
-<%= @value  %>
+<div id="mainWrapper">
+        <div class="container">
+            <div class="wrapper ">
+                <h1 class="text-center text-white mb-5 pb-3" style="border-bottom: 2px solid white;">CURRENCER</h1>
+                 
+
+                        <%= form_with url: convert_path, method: :post do |form| %>
+                       <br>
+                        <%= form.number_field :value, class:"form-control form-control-lg", placeholder: "Put your th value in numbers" %>
+                        <br>
+
+                        <%= select_tag(:from_currency, options_for_select(@currencies),prompt: 'Convert From' , class:"form-select form-select-lg mb-3" ) %>                       
+                        <br>
+                        <%= select_tag(:to_currency, options_for_select(@currencies), prompt: 'Convert From' , class:"form-select form-select-lg mb-3"  ) %>
+                        
+                        <%= form.submit "Convert" , class: 'btn btn-success w-100'%>
+                        <% end %>
+                        
+                        <h2> The value is : <%= @from_currency %> </h2>
+
+                        <p class="alert alert-success" role="alert"> Data Base last update : <%= @response["date"] %></p>
+            
+        </div>
+    </div>
+

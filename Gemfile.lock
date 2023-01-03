@@ -104,7 +104,6 @@ GEM
       raabro (~> 1.4)
     globalid (1.0.0)
       activesupport (>= 5.0)
-    hiredis (0.6.3)
     httparty (0.20.0)
       mime-types (~> 3.0)
       multi_xml (>= 0.5.2)
@@ -264,7 +263,6 @@ DEPENDENCIES
   bootstrap
   capybara
   debug
-  hiredis (~> 0.6.3)
   httparty
   importmap-rails
   jbuilder
