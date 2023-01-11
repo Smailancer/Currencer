@@ -5,20 +5,17 @@ class CurrenciesController < ApplicationController
   def index
     @currencies = Currency.all.pluck(:symbol, :id)
     
-    data = current_price
-  
-    # Extract the rates data from the response
-    @rates = data["rates"]
+    # Bring the last updated_at value from the data base
+
+    @date = Currency.maximum(:updated_at)
 
   end
 
-
+#The Method that does the updates
   def update_values
-    # Call the current_price method to get the latest data from the API
-    data = current_price
-  
+
     # Extract the rates data from the response
-    rates = data["rates"]
+    rates = current_price["rates"]
   
     # Iterate through the rates and update the value for each currency in the currencies table
     rates.each do |symb, val|
@@ -48,28 +45,32 @@ class CurrenciesController < ApplicationController
   
   
 
-
+# The Method That do the conversion
   def convert
     currencies = Currency.all.pluck(:symbol, :id)
 
     value = params[:value].to_i
     from_currency = Currency.find(params[:from_currency])
     to_currency = Currency.find(params[:to_currency])
-    conversion_result = value * from_currency.value / to_currency.value
+    conversion_result = value * to_currency.value / from_currency.value
   
     flash[:success] = "The conversion result is #{conversion_result}"
     redirect_to root_path
   end
-  
 
 
   private 
 
   
+#Api call
   def current_price
-    url = 'https://api.frankfurter.app/latest?from='
-    request = HTTParty.get(url + "USD")
-    @response = JSON.parse(request.body)
+    url = "https://api.apilayer.com/exchangerates_data/latest"
+    headers = {"apikey" => "HKDdFHJX9BgO2HV95cnptUqz8s3e3WC7"}
+    params = {"base" => "USD"}
+    
+    response = HTTParty.get(url, headers: headers, query: params)
+    response = JSON.parse(response.body)
+    
   end
 
 end

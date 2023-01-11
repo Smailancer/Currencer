@@ -47,6 +47,8 @@ gem "httparty"
 gem "bootstrap"
 gem "jquery-rails"
 gem "simple_form"
+# gem 'resque'
+# gem 'resque-scheduler'
 # gem "sidekiq-cron", "~> 1.9", ">= 1.9.1"
 
 # Use Sass to process CSS

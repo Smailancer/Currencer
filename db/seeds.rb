@@ -6,205 +6,192 @@
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
 
-currencies = Currency.create([
-    
-        {
-          symbol: "SEK",
-          name: "SEK Sweden, kronor"
-        },
-        {
-          symbol: "ATS",
-          name: "ATS Austria, shilling"
-        },
-        {
-          symbol: "AUD",
-          name: "AUD Australian, dollar"
-        },
-        {
-          symbol: "BEF",
-          name: "BEF Belgien, franc"
-        },
-        {
-          symbol: "BRL",
-          name: "BRL Brazilien, real"
-        },
-        {
-          symbol: "CAD",
-          name: "CAD Canada, dollar"
-        },
-        {
-          symbol: "CHF",
-          name: "CHF Switzerland, francs"
-        },
-        {
-          symbol: "CNY",
-          name: "CNY China, yuan renminbi"
-        },
-        {
-          symbol: "CYP",
-          name: "CYP Cyprus, pound"
-        },
-        {
-          symbol: "CZK",
-          name: "CZK Czech Republic, koruna"
-        },
-        {
-          symbol: "DEM",
-          name: "DEM Germany, mark"
-        },
-        {
-          symbol: "DKK",
-          name: "DKK Denmark, krone"
-        },
-        {
-          symbol: "EEK",
-          name: "EEK Estonian, kroon"
-        },
-        {
-          symbol: "ESP",
-          name: "ESP Spain, pesetas"
-        },
-        {
-          symbol: "EUR",
-          name: "EUR Euroland, euro"
-        },
-        {
-          symbol: "FIM",
-          name: "FIM Finland, marka"
-        },
-        {
-          symbol: "FRF",
-          name: "FRF France, franc"
-        },
-        {
-          symbol: "GBP",
-          name: "GBP Great Britain, pound"
-        },
-        {
-          symbol: "GRD",
-          name: "GRD Greece, drachmer"
-        },
-        {
-          symbol: "HKD",
-          name: "HKD Hong Kong, dollar"
-        },
-        {
-          symbol: "HUF",
-          name: "HUF Hungary, forint"
-        },
-        {
-          symbol: "IDR",
-          name: "IDR Indonesia, rupiah"
-        },
-        {
-          symbol: "IEP",
-          name: "IEP Ireland, pund"
-        },
-        {
-          symbol: "INR",
-          name: "INR India, rupee"
-        },
-        {
-          symbol: "ISK",
-          name: "ISK Iceland, kronor"
-        },
-        {
-          symbol: "ITL",
-          name: "ITL Italy, lire"
-        },
-        {
-          symbol: "JPY",
-          name: "JPY Japan, yen"
-        },
-        {
-          symbol: "KRW",
-          name: "KRW South Korea, won"
-        },
-        {
-          symbol: "KWD",
-          name: "KWD Kuwait, dinar"
-        },
-        {
-          symbol: "LTL",
-          name: "LTL Lithuania,  litas"
-        },
-        {
-          symbol: "LVL",
-          name: "LVL Latvia, lat"
-        },
-        {
-          symbol: "MAD",
-          name: "MAD Morocko, dirham"
-        },
-        {
-          symbol: "MXN",
-          name: "MXN Mexico, nuevo peso"
-        },
-        {
-          symbol: "MYR",
-          name: "MYR Malaysia, ringgit"
-        },
-        {
-          symbol: "NLG",
-          name: "NLG Dutchland, guilder"
-        },
-        {
-          symbol: "NOK",
-          name: "NOK Norway, krone"
-        },
-        {
-          symbol: "NZD",
-          name: "NZD New Zealand, dollar"
-        },
-        {
-          symbol: "PLN",
-          name: "PLN Poland, zloty"
-        },
-        {
-          symbol: "PTE",
-          name: "PTE Portugal, escudo"
-        },
-        {
-          symbol: "RUB",
-          name: "RUB Russia, rouble"
-        },
-        {
-          symbol: "SAR",
-          name: "SAR Saudi Arabia, riyal"
-        },
-        {
-          symbol: "SGD",
-          name: "SGD Singapore, dollar"
-        },
-        {
-          symbol: "SIT",
-          name: "SIT Slovenia, tolar"
-        },
-        {
-          symbol: "SKK",
-          name: "SKK Slovakia, koruna"
-        },
-        {
-          symbol: "THB",
-          name: "THB Thailand, baht"
-        },
-        {
-          symbol: "TRL",
-          name: "TRL Turkey, lira"
-        },
-        {
-          symbol: "TRY",
-          name: "TRY Turkey, new lira"
-        },
-        {
-          symbol: "USD",
-          name: "USD US, dollar"
-        },
-        {
-          symbol: "ZAR",
-          name: "ZAR South Africa, rand"
-        }
-      
-])
+
+# This removes existing old limited records from the table
+Currency.destroy_all 
+
+#The new list from the new Oficial Layer Api 
+
+symbols = {
+  "AED": "United Arab Emirates Dirham",
+  "AFN": "Afghan Afghani",
+  "ALL": "Albanian Lek",
+  "AMD": "Armenian Dram",
+  "ANG": "Netherlands Antillean Guilder",
+  "AOA": "Angolan Kwanza",
+  "ARS": "Argentine Peso",
+  "AUD": "Australian Dollar",
+  "AWG": "Aruban Florin",
+  "AZN": "Azerbaijani Manat",
+  "BAM": "Bosnia-Herzegovina Convertible Mark",
+  "BBD": "Barbadian Dollar",
+  "BDT": "Bangladeshi Taka",
+  "BGN": "Bulgarian Lev",
+  "BHD": "Bahraini Dinar",
+  "BIF": "Burundian Franc",
+  "BMD": "Bermudan Dollar",
+  "BND": "Brunei Dollar",
+  "BOB": "Bolivian Boliviano",
+  "BRL": "Brazilian Real",
+  "BSD": "Bahamian Dollar",
+  "BTC": "Bitcoin",
+  "BTN": "Bhutanese Ngultrum",
+  "BWP": "Botswanan Pula",
+  "BYN": "New Belarusian Ruble",
+  "BYR": "Belarusian Ruble",
+  "BZD": "Belize Dollar",
+  "CAD": "Canadian Dollar",
+  "CDF": "Congolese Franc",
+  "CHF": "Swiss Franc",
+  "CLF": "Chilean Unit of Account (UF)",
+  "CLP": "Chilean Peso",
+  "CNY": "Chinese Yuan",
+  "COP": "Colombian Peso",
+  "CRC": "Costa Rican Col\u00f3n",
+  "CUC": "Cuban Convertible Peso",
+  "CUP": "Cuban Peso",
+  "CVE": "Cape Verdean Escudo",
+  "CZK": "Czech Republic Koruna",
+  "DJF": "Djiboutian Franc",
+  "DKK": "Danish Krone",
+  "DOP": "Dominican Peso",
+  "DZD": "Algerian Dinar",
+  "EGP": "Egyptian Pound",
+  "ERN": "Eritrean Nakfa",
+  "ETB": "Ethiopian Birr",
+  "EUR": "Euro",
+  "FJD": "Fijian Dollar",
+  "FKP": "Falkland Islands Pound",
+  "GBP": "British Pound Sterling",
+  "GEL": "Georgian Lari",
+  "GGP": "Guernsey Pound",
+  "GHS": "Ghanaian Cedi",
+  "GIP": "Gibraltar Pound",
+  "GMD": "Gambian Dalasi",
+  "GNF": "Guinean Franc",
+  "GTQ": "Guatemalan Quetzal",
+  "GYD": "Guyanaese Dollar",
+  "HKD": "Hong Kong Dollar",
+  "HNL": "Honduran Lempira",
+  "HRK": "Croatian Kuna",
+  "HTG": "Haitian Gourde",
+  "HUF": "Hungarian Forint",
+  "IDR": "Indonesian Rupiah",
+  "ILS": "Israeli New Sheqel",
+  "IMP": "Manx pound",
+  "INR": "Indian Rupee",
+  "IQD": "Iraqi Dinar",
+  "IRR": "Iranian Rial",
+  "ISK": "Icelandic Kr\u00f3na",
+  "JEP": "Jersey Pound",
+  "JMD": "Jamaican Dollar",
+  "JOD": "Jordanian Dinar",
+  "JPY": "Japanese Yen",
+  "KES": "Kenyan Shilling",
+  "KGS": "Kyrgystani Som",
+  "KHR": "Cambodian Riel",
+  "KMF": "Comorian Franc",
+  "KPW": "North Korean Won",
+  "KRW": "South Korean Won",
+  "KWD": "Kuwaiti Dinar",
+  "KYD": "Cayman Islands Dollar",
+  "KZT": "Kazakhstani Tenge",
+  "LAK": "Laotian Kip",
+  "LBP": "Lebanese Pound",
+  "LKR": "Sri Lankan Rupee",
+  "LRD": "Liberian Dollar",
+  "LSL": "Lesotho Loti",
+  "LTL": "Lithuanian Litas",
+  "LVL": "Latvian Lats",
+  "LYD": "Libyan Dinar",
+  "MAD": "Moroccan Dirham",
+  "MDL": "Moldovan Leu",
+  "MGA": "Malagasy Ariary",
+  "MKD": "Macedonian Denar",
+  "MMK": "Myanma Kyat",
+  "MNT": "Mongolian Tugrik",
+  "MOP": "Macanese Pataca",
+  "MRO": "Mauritanian Ouguiya",
+  "MUR": "Mauritian Rupee",
+  "MVR": "Maldivian Rufiyaa",
+  "MWK": "Malawian Kwacha",
+  "MXN": "Mexican Peso",
+  "MYR": "Malaysian Ringgit",
+  "MZN": "Mozambican Metical",
+  "NAD": "Namibian Dollar",
+  "NGN": "Nigerian Naira",
+  "NIO": "Nicaraguan C\u00f3rdoba",
+  "NOK": "Norwegian Krone",
+  "NPR": "Nepalese Rupee",
+  "NZD": "New Zealand Dollar",
+  "OMR": "Omani Rial",
+  "PAB": "Panamanian Balboa",
+  "PEN": "Peruvian Nuevo Sol",
+  "PGK": "Papua New Guinean Kina",
+  "PHP": "Philippine Peso",
+  "PKR": "Pakistani Rupee",
+  "PLN": "Polish Zloty",
+  "PYG": "Paraguayan Guarani",
+  "QAR": "Qatari Rial",
+  "RON": "Romanian Leu",
+  "RSD": "Serbian Dinar",
+  "RUB": "Russian Ruble",
+  "RWF": "Rwandan Franc",
+  "SAR": "Saudi Riyal",
+  "SBD": "Solomon Islands Dollar",
+  "SCR": "Seychellois Rupee",
+  "SDG": "Sudanese Pound",
+  "SEK": "Swedish Krona",
+  "SGD": "Singapore Dollar",
+  "SHP": "Saint Helena Pound",
+  "SLE": "Sierra Leonean Leone",
+  "SLL": "Sierra Leonean Leone",
+  "SOS": "Somali Shilling",
+  "SRD": "Surinamese Dollar",
+  "STD": "S\u00e3o Tom\u00e9 and Pr\u00edncipe Dobra",
+  "SVC": "Salvadoran Col\u00f3n",
+  "SYP": "Syrian Pound",
+  "SZL": "Swazi Lilangeni",
+  "THB": "Thai Baht",
+  "TJS": "Tajikistani Somoni",
+  "TMT": "Turkmenistani Manat",
+  "TND": "Tunisian Dinar",
+  "TOP": "Tongan Pa\u02bbanga",
+  "TRY": "Turkish Lira",
+  "TTD": "Trinidad and Tobago Dollar",
+  "TWD": "New Taiwan Dollar",
+  "TZS": "Tanzanian Shilling",
+  "UAH": "Ukrainian Hryvnia",
+  "UGX": "Ugandan Shilling",
+  "USD": "United States Dollar",
+  "UYU": "Uruguayan Peso",
+  "UZS": "Uzbekistan Som",
+  "VEF": "Venezuelan Bol\u00edvar Fuerte",
+  "VES": "Sovereign Bolivar",
+  "VND": "Vietnamese Dong",
+  "VUV": "Vanuatu Vatu",
+  "WST": "Samoan Tala",
+  "XAF": "CFA Franc BEAC",
+  "XAG": "Silver (troy ounce)",
+  "XAU": "Gold (troy ounce)",
+  "XCD": "East Caribbean Dollar",
+  "XDR": "Special Drawing Rights",
+  "XOF": "CFA Franc BCEAO",
+  "XPF": "CFP Franc",
+  "YER": "Yemeni Rial",
+  "ZAR": "South African Rand",
+  "ZMK": "Zambian Kwacha (pre-2013)",
+  "ZMW": "Zambian Kwacha",
+  "ZWL": "Zimbabwean Dollar"
+}
+
+symbols.each do |symb, name|
+    Currency.create(symbol: symb, name: name)
+end
+
+
+
+
+
 
 

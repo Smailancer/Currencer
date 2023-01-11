@@ -21,7 +21,7 @@
                     <%= form.submit "Convert" , class: 'btn btn-success w-100'%>
                     <% end %>
                     <br>
-                    <p class="alert alert-success" role="alert"> Data Base last update : <%= @response["date"] %></p>
+                    <p class="alert alert-success" role="alert"> Data Base last update : <%= @date %></p>
                     <br>
                     <%= link_to "Update Now", update_path, method: :post, class: "btn btn-primary w-100", confirm: "Are you sure you want to update the values?" %>
                     

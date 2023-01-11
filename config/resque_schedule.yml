@@ -1,0 +1,4 @@
+currency_updates:
+  every: 5s
+  class: CurrencyUpdater
+  queue: currency_updates
