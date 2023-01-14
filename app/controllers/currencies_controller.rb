@@ -6,7 +6,6 @@ class CurrenciesController < ApplicationController
     @currencies = Currency.all.pluck(:symbol, :id)
     
     # Bring the last updated_at value from the data base
-
     @date = Currency.maximum(:updated_at)
 
   end
@@ -54,7 +53,7 @@ class CurrenciesController < ApplicationController
     to_currency = Currency.find(params[:to_currency])
     conversion_result = value * to_currency.value / from_currency.value
   
-    flash[:success] = "The conversion result is #{conversion_result}"
+    flash[:success] = "The conversion result is #{conversion_result} #{to_currency.symbol}"
     redirect_to root_path
   end
 

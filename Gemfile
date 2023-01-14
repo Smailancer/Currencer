@@ -47,6 +47,9 @@ gem "httparty"
 gem "bootstrap"
 gem "jquery-rails"
 gem "simple_form"
+gem 'whenever'
+
+# gem 'delayed_job_active_record'
 # gem 'resque'
 # gem 'resque-scheduler'
 # gem "sidekiq-cron", "~> 1.9", ">= 1.9.1"
