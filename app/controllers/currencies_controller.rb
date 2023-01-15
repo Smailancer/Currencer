@@ -46,8 +46,6 @@ class CurrenciesController < ApplicationController
 
 # The Method That do the conversion
   def convert
-    currencies = Currency.all.pluck(:symbol, :id)
-
     value = params[:value].to_i
     from_currency = Currency.find(params[:from_currency])
     to_currency = Currency.find(params[:to_currency])

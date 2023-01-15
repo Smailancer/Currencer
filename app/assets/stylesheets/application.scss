@@ -19,17 +19,20 @@
     padding: 0;
 }
 
-#mainWrapper {
+
+body {
     background-image: url(bg.png);
     background-repeat: no-repeat;
     background-position: center;
+
 }
+
 
 .wrapper {
     width: 720px;
     margin: auto;
     padding: 70px 40px;
-    background: rgba(0, 0, 0, 0.671);
+    background: rgba(0, 0, 0, 0.5);
     color: rgb(255, 255, 255);
     border-radius: 10px;
     border: 1px solid tomato;

@@ -2,12 +2,12 @@
 
 Currency Converter is a web application that allows you to convert between different currencies.
 
+![Pic from the Index page](https://raw.githubusercontent.com/Smailancer/currencer/main/app/assets/images/final.png)
+
 ## Features
 
-* Convert between more than 49 currencies
+* Convert between more than 170 currencies
 * Get hourly exchange rates from a reliable source
-* Choose from multiple conversion methods
-* Save and view your conversion history
 
 ## Installation
 

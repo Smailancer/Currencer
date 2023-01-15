@@ -1,2 +1,0 @@
-:client_middleware:
-  - sidekiq::client::hiredis
